@@ -3,6 +3,11 @@
     cursor: pointer;
 }
 
+#bgData{
+    background: white;
+    box-shadow: -1px -1px 24px 0px rgba(194,194,194,1);
+}
+
 #avatar{
   border-radius: 50%;
     width: 25px;
@@ -22,4 +27,9 @@ th,td{
 body{
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
+    background: #f8f9fb;
+}
+
+table{
+    padding-left: 5%;
 }
