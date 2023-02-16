@@ -2,3 +2,24 @@
 {
     cursor: pointer;
 }
+
+#avatar{
+  border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+#headerRow{
+    background: #f1f4f8;
+}
+
+th,td{
+    color: #555d71;
+    padding: 5px;
+    text-align: left;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
