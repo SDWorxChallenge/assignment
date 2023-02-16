@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.logo {
+    height: "150px";
+    width: "150px";
+}
+
+.home {
+    background-color: #E3E6EF;
+}

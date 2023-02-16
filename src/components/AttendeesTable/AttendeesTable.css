@@ -1,0 +1,100 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table-container {
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #E3E6EF;
+}
+
+td img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 1px;
+}
+
+
+
+@media only screen and (max-width: 575px) {
+    table {
+        font-size: 14px;
+    }
+
+    td:first-child::before {
+        content: "Name: ";
+        font-weight: bold;
+    }
+
+    td:nth-child(2)::before {
+        content: "Date of birth: ";
+        font-weight: bold;
+    }
+
+    td:nth-child(3)::before {
+        content: "City: ";
+        font-weight: bold;
+    }
+
+    td:nth-child(4)::before {
+        content: "Country: ";
+        font-weight: bold;
+    }
+
+    td:last-child::before {
+        content: "Actions: ";
+        font-weight: bold;
+    }
+
+    td:before {
+        float: left;
+        margin-right: 10px;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    td {
+        display: block;
+        text-align: right;
+        padding: 8px 0 8px 150px;
+        position: relative;
+    }
+
+    td img {
+        display: none;
+    }
+
+    .table-container {
+        height: auto;
+        overflow-y: visible;
+    }
+}
