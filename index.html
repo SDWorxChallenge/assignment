@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<title>SDWorkx Challenge</title>
+<meta name="description" content="SDWorkx Challenge">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+body {
+	background-color: lightgray;
+}
+
+#tableHolder {
+	position: relative;
+	width: 90%;
+	background-color: white;
+	left: 5%;
+}
+
+#theTable {
+	padding: 20px;
+}
+.idHolder {
+	padding: 10px 20px 10px 20px;
+    position: relative;
+    left: -30px;
+    border-radius: 5px 25px 25px 25px;
+    border: 2px solid grey;
+    background-color: white;
+}
+
+.avatar {
+	border-radius: 50%;
+}
+</style>
+<script>
+$(document).ready( function () {
+	$.getJSON("https://63998da716b0fdad77409a5e.mockapi.io/api/v1/hikers", function(data) {
+	 }).fail(function( jqxhr, textStatus, error ) {
+		 var err = textStatus + ', ' + error;
+		 alert(err);
+		 console.log( "Request Failed: " + err);
+	 }).then(function(data){
+		 loadTable(data);
+	 });
+	 
+	 function loadTable(jsonData) {
+		 
+		$('#theTable').DataTable({
+			data: jsonData,
+			columns: [
+			{ "data" : "id" , orderable: false, "render": function ( data, type, row ){
+				if(type=="display")
+					return "<span class='idHolder'>#"+data+"</span>";
+				else
+					return data;
+			}},
+			{ "data" : "avatar" , orderable: false, "render": function ( data, type, row ){
+				if(type=="display")
+					return "<img style='width:50px;' class='avatar' src='"+data+"'>";
+				else
+					return data;
+			}},
+			{ "data" : "name" },
+            { "data" : "dateOfBirth" },            
+            { "data" : "country" },
+            { "data" : "city" },
+			{
+                data: null,
+                className: "dt-center edit",
+                defaultContent: '<i class="fa fa-pencil"/>',
+                orderable: false
+            },
+            {
+                data: null,
+                className: "dt-center delete",
+                defaultContent: '<i class="fa fa-trash"/>',
+                orderable: false
+            }			
+			]
+		});
+	 }
+     
+} );
+</script>
+</head>
+<body>
+<div>
+<img src="https://www.sttinfo.fi/data/images/00098/964a6b18-860e-4c2e-91f0-8c84b5947173.png" style="left:0;width:20%;">
+<img src="https://www.thebigyes.eu/images/sd-worx-symbool.png" style="float:right;width:20%;">
+</div>
+<div id="tableHolder">
+<table id="theTable" class="display" style="width:100%">
+	<thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+			<th>City</th>
+			<th>Country</th>
+			<th></th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+</div>
+</body>
+</html>
+
+
