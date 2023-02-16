@@ -1,0 +1,29 @@
+<div class="content">
+    <h1>{{title}} ({{users.length}})</h1>
+
+    <div class="table">
+        <table>
+            <tr class="thead">
+                <th></th>
+                <th></th>
+                <th class="name">NAME</th>
+                <th class="date">DATE OF BIRTH</th>
+                <th>CITY</th>
+                <th>COUNTRY</th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let u of users;let i = index">
+                <td>{{i+1}}</td>
+                <td><img class="avatar" [src]="u.avatar" alt="Profile pic"></td>
+                <td>{{u.name}}</td>
+                <td>{{u.dateOfBirth.toString().slice(0,10)}}</td>
+                <td>{{u.city}}</td>
+                <td>{{u.country}}</td>
+                <td><img src="./assets/trash.svg" (click)="deleteUser(u.id)"></td>
+            </tr>
+        </table>
+    </div>
+   
+</div>
+
+

@@ -1,0 +1,5 @@
+<div class="container">
+    <p>{{user!.name}} <br>
+    <span class="tiny">{{user!.city}} - {{user!.country}}</span></p>
+    <img src="./assets/trash.svg" (click)="emitDelete(user!.id)">
+</div>

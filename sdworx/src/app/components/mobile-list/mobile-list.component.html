@@ -1,0 +1,6 @@
+<div class="content">
+    <h1>{{title}} ({{users.length}})</h1>
+    <div *ngFor="let u of users;let i = index">
+        <app-mobile-list-item [user]="u" (delete)="deleteUser($event)"></app-mobile-list-item>
+    </div>
+</div>
