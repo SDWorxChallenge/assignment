@@ -4,6 +4,10 @@
     border-spacing: 0;
 }
 
+.table table {
+    border-spacing: 0;
+}
+
 .table .inputWrapper {
     display:none;
 }
