@@ -58,6 +58,7 @@ async function onDocumentLoad(){
                             console.log("Delete row");
                             e.currentTarget.parentNode.remove();
                         });
+                        cell.id = "deleteButton";
                         cell.innerHTML = "🗑️"
                     }
 
