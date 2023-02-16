@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <p>table works!</p>
+  Attendees: {{data.length}}
+  <table class="table">
+    <tr class="tableHeader">
+      <th>Name</th>
+      <th>Date of birth</th>
+      <th>City</th>
+      <th>Country</th>
+    </tr>
+    <tr *ngFor="let item of data" class="row">
+      <img src='{{item.avatar}}' class="avatar">
+      <td>{{item.name}}</td>
+      <td>{{item.dateOfBirth}}</td>
+      <td>{{item.city}}</td>
+      <td>{{item.country}}</td>
+      <button (click)="onDelete(item.id)">Delete</button>
+    </tr>
+  </table>
+</div>
+

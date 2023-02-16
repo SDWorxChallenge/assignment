@@ -1,0 +1,29 @@
+.wrapper {
+  background: white;
+}
+
+.table{
+  overflow-y:scroll;
+  height:80vh;
+  display:block;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 60px;
+  border-radius: 100%;
+}
+
+.tableHeader {
+  padding-left: 200px;
+  display: flex;
+  th {
+    background-color:orange;
+    flex-basis: 100%;
+    text-align: left;
+  }
+}
