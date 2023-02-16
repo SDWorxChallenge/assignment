@@ -105,9 +105,13 @@ async function onDocumentLoad(){
                 totalCount = totalCount - 1;
                 let totalAttendees = document.getElementById("totalAttendees");
                 totalAttendees.innerHTML = "Attendees (" + totalCount + ")";
+                $("tr:even").css("background-color", "#fafafa");
+                $("tr:odd").css("background-color", "#ffffff");
             }
         });
         cell.id = "deleteButton";
         cell.innerHTML = "🗑️"
+        $("tr:even").css("background-color", "#fafafa");
+        $("tr:odd").css("background-color", "#ffffff");
     }
 }
