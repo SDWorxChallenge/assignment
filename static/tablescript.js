@@ -13,41 +13,49 @@ async function onDocumentLoad(){
     console.log(tableData);
     //Create a HTML Table element.
                     var table = document.getElementById("dataTable");
-                    table.border = "1";
 
                     //Add the header row.
                     var row = table.insertRow(-1);
 
                     //Add the header cells.
                     var headerCell = document.createElement("TH");
-                    headerCell.innerHTML = "CustomerId";
+                    headerCell.innerHTML = "NAME";
                     row.appendChild(headerCell);
 
                     headerCell = document.createElement("TH");
-                    headerCell.innerHTML = "Name";
+                    headerCell.innerHTML = "DATE OF BIRTH";
                     row.appendChild(headerCell);
 
                     headerCell = document.createElement("TH");
-                    headerCell.innerHTML = "Country";
+                    headerCell.innerHTML = "CITY";
+                    row.appendChild(headerCell);
+
+                    headerCell = document.createElement("TH");
+                    headerCell.innerHTML = "COUNTRY";
                     row.appendChild(headerCell);
 
                     //Add the data rows.
-                    for (var i = 0; i < customers.length; i++) {
+                    for (var i = 0; i < tableData.length; i++) {
                         //Add the data row.
                         var row = table.insertRow(-1);
 
                         //Add the data cells.
                         var cell = row.insertCell(-1);
-                        cell.innerHTML = customers[i].CustomerId;
+                        cell.innerHTML = tableData[i].name;
 
                         cell = row.insertCell(-1);
-                        cell.innerHTML = customers[i].Name;
+                        let DOB = new Date(tableData[i].dateOfBirth);
+                        cell.innerHTML = DOB.toLocaleDateString();
 
                         cell = row.insertCell(-1);
-                        cell.innerHTML = customers[i].Country;
+                        cell.innerHTML = tableData[i].country;
+
+                        cell = row.insertCell(-1);
+                        cell.innerHTML = tableData[i].city;
+
+                        cell = row.insertCell(-1);
+                        cell.innerHTML = "🗑️"
                     }
 
-                    var dvTable = document.getElementById("dvCustomersGrid");
-                    dvTable.innerHTML = "";
-                    dvTable.appendChild(table);
+                    document.appendChild(table);
 }
