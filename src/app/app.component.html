@@ -1,0 +1,46 @@
+<div class="root">
+  <div class="header">
+    <img style="width: 250px; height: 86px;" src="/assets/Logo-SDWorx.png" />
+    <!-- iff breakpoint hover 500; hide img -->
+
+    <img class="second-logo" style="width: 150px;" src="/assets/sd-worx-symbool.png" />
+  </div>
+  <br />
+  <div class="paper computer">
+    <h2>Attendees ({{users.length}})</h2>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>Name</th>
+            <th>Date Of Birth</th>
+            <th>City</th>
+            <th>Country</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; index as i">
+            <td class="index">#{{i+1}}</td>
+            <td><img class="avatar" src={{user.avatar}} /></td>
+            <td>{{user.name}}</td>
+            <td>{{convertDate(user.dateOfBirth)}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.country}}</td>
+            <td><button (click)="deleteUser(user.id)"><img src="/assets/bin.svg"></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="paper mobile grid">
+    <div class="item">
+      <span class="title  ">Attendees ({{users.length}})</span>
+    </div>
+    <div class="item" *ngFor="let user of users">
+      {{user.name}}
+    </div>
+  </div>
+</div>
