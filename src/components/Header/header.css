@@ -1,0 +1,16 @@
+.app-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.app-header .logo-container {
+    width: 80%;
+}
+
+.app-header .shape-container {
+    width: 20%;
+}

@@ -1,0 +1,23 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .pagination-button {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #303642;
+    border: none;
+    background: #fff;
+}
+.pagination .currentPage {
+    background: #D63D00;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.pagination .pagination-button:hover {
+    cursor: pointer;
+}
