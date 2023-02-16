@@ -54,6 +54,10 @@ async function onDocumentLoad(){
                         cell.innerHTML = tableData[i].city;
 
                         cell = row.insertCell(-1);
+                        cell.addEventListener("click", function(e) {
+                            console.log("Delete row");
+                            e.currentTarget.parentNode.remove();
+                        });
                         cell.innerHTML = "🗑️"
                     }
 
