@@ -1,0 +1,26 @@
+<div class="tabel__header">
+  <div class="header__name">NAME</div>
+  <div class="header__date">DATE OF BIRTH</div>
+  <div class="header__city">CITY</div>
+  <div class="header__country">COUNTRY</div>
+</div>
+<div class="tabel_field">
+<app-tabel-row *ngFor="let item of pageData" [item]="item"></app-tabel-row>
+</div>
+<div class="tabel__page-block">
+  <div class="page" (click)="setPage(1)">
+    1
+  </div>
+  <div class="page" (click)="setPage(2)">
+    2
+  </div>
+  <div class="page" (click)="setPage(3)">
+    3
+  </div>
+  <div class="page" (click)="setPage(4)">
+    4
+  </div>
+  <div class="page" (click)="setPage(5)">
+    5
+  </div>
+</div>

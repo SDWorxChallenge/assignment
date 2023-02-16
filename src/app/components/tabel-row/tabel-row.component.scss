@@ -1,0 +1,59 @@
+.row{
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #C8CDD9;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.row{
+  &__id{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    padding: 7px 9px;
+    border: 1px solid #E3E6EF;
+    border-radius: 7px;
+    margin-right: 2%;
+  }
+  &__img{
+    margin-right: 2%;
+    img{
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+  }
+  &__name{
+    display: flex;
+    align-items: center;
+    width: 12%;
+  }
+  &__date{
+    display: flex;
+    align-items: center;
+width: 12%;
+  }
+  &__city{
+    display: flex;
+    align-items: center;
+    width: 10%;
+  }
+  &__country{
+    display: flex;
+    align-items: center;
+    width: 10%;
+  }
+  &__controls{
+    display: flex;
+    align-items: center;
+    width: 12%;
+   button{
+     background: none;
+     border: none;
+   }
+  }
+}

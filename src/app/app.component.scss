@@ -1,0 +1,23 @@
+
+:host{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Roboto";
+}
+html,body{
+  height: 100%;
+  overflow: hidden;
+}
+
+.logo{
+  position: absolute;
+  top: 40px;
+  left: 72px;
+}
+.right-logo{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
