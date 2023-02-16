@@ -1,0 +1,65 @@
+import { useState } from "react"
+import { toast, useToaster } from "@/hooks/use-toaster"
+import { CheckCircledIcon, Cross1Icon } from "@radix-ui/react-icons"
+import { Canvas, Meta, Story } from "@storybook/addon-docs"
+
+import { Button } from "@/components/ui/button"
+import {
+  Toast,
+  ToastAction,
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+} from "@/components/ui/toast"
+
+<Meta title="Toast" component={Toast} />
+
+# Toast
+
+## Installation
+
+1. Wrap your app with the `ToastProvider` component from `@/components/ui/toast`
+2. Import the `useToaster()` hook from `@/hooks/use-toaster` in your component
+3. Call the `useToaster()` hook to get the `toast()` function
+4. Call the `toast()` function with the `Toast` component as the first argument and the props as the second argument
+
+## Demo
+
+<Story name="Primary">
+    {() => {
+        const { toasts } = useToaster()
+
+        return (
+            <>
+                <Button
+                    onClick={() =>
+                        toast({
+                            content: (
+                            <>
+                                <ToastTitle>New toast</ToastTitle>
+                                <ToastDescription>Description of the toast</ToastDescription>
+                            </>
+                            ),
+                        })
+                    }
+                >
+                Show Toast
+                </Button>
+
+                <ToastProvider swipeDirection="right">
+                    {toasts.map(({ id, children, ...props }) => (
+                        <Toast key={id} {...props}>
+                            {children}
+                            <ToastClose />
+                        </Toast>
+                    ))}
+
+                    <ToastViewport position="bottom-right" />
+                </ToastProvider>
+            </>
+        )
+    }}
+
+</Story>
