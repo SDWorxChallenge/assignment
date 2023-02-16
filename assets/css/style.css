@@ -1,0 +1,23 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../img/logo-top-left.jpg"), url("../img/logo-top-right.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right top;
+    margin-top: 300px;
+    background-size: 250px 87px, 300px 300px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    background-color: #C8CDD9;
+    padding: 12px, 16px, 12px, 16px
+}
