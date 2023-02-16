@@ -1,0 +1,28 @@
+<img class="logo" src="assets/logo.png" alt="logo" />
+<div class="sd-card" *ngIf="hickers$ | async as hickers">
+  <div class="sd-title">Attendees ({{ hickers.length }})</div>
+
+  <div class="hicker-item hicker-header">
+    <div class="hicker-id"></div>
+    <div class="hicker-avatar"></div>
+    <div class="hicker-name">NAME</div>
+    <div class="hicker-from">FROM</div>
+    <div class="hicker-date-of-birth">DATEOFBIRTH</div>
+    <div class="hicker-actions"></div>
+  </div>
+
+  <div class="hicker-item" *ngFor="let hicker of hickers">
+    <div class="hicker-id">#{{ hicker.id }}</div>
+    <div class="hicker-avatar">
+      <img src="{{ hicker.avatar }}" alt="avatar" />
+    </div>
+    <div class="hicker-name">{{ hicker.name }}</div>
+    <div class="hicker-from">{{ hicker.city }} - {{ hicker.country }}</div>
+    <div class="hicker-date-of-birth">{{ hicker.dateOfBirth | date }}</div>
+    <div class="hicker-actions">
+      <app-hicker-actions
+        (delete)="deleteHicker(hicker.id)"
+      ></app-hicker-actions>
+    </div>
+  </div>
+</div>
