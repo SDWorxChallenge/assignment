@@ -9,7 +9,7 @@ import createColumns from './Table/columnsConfig';
 
 const Root = styled.div`
   display: flex;
-  margin: 40px 72px 0 72px;
+  margin: 40px 72px;
   flex-direction: column;
   width: 100%;
 `;
@@ -29,6 +29,9 @@ const Arrows = styled.img.attrs({src: ArrowsSVG})`
 
 const Table = styled(_Table)`
   margin: 40px 0 0;
+  box-shadow: 0px 0px 4px rgba(48, 54, 66, 0.11),
+    0px 2px 2px rgba(48, 54, 66, 0.1);
+  border-radius: 4px;
   .avatar-col {
     width: 4%;
     min-width: 40px;
@@ -44,9 +47,9 @@ const App = () => {
 
   const columns = useMemo(
     () =>
-      createColumns((row) => {
-        setAttendees((value) => value.filter(({id}) => row.id !== id));
-      }),
+      createColumns((row) =>
+        setAttendees((value) => value.filter(({id}) => row.id !== id))
+      ),
     []
   );
 
@@ -54,7 +57,7 @@ const App = () => {
     <Root>
       <Logo />
       <Arrows />
-      <Table data={data} columns={columns} />
+      <Table data={attendees} columns={columns} />
     </Root>
   );
 };

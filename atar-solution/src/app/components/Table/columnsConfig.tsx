@@ -6,7 +6,9 @@ import {Candidate} from '../../types/candidate';
 import DeleteSVG from '../../assets/delete.svg';
 import EditSVG from '../../assets/edit.svg';
 
-const columnHelper = createColumnHelper<Candidate>();
+type ExtendedCandidate = Candidate & {icons?: string};
+
+const columnHelper = createColumnHelper<ExtendedCandidate>();
 
 const TableCell = styled.div`
   color: #303642;
@@ -30,7 +32,7 @@ const EditIcon = styled(DeleteIcon).attrs({src: EditSVG})`
   margin-right: 20px;
 `;
 
-const createColumns = (onDelete: (candidate: Candidate) => void) => [
+const createColumns = (onDelete: (candidate: ExtendedCandidate) => void) => [
   columnHelper.accessor('id', {
     header: '',
     cell: (info) => <TableCell>{info.getValue()}</TableCell>,
@@ -61,7 +63,7 @@ const createColumns = (onDelete: (candidate: Candidate) => void) => [
     header: 'Country',
     cell: (info) => <TableCell>{info.getValue()}</TableCell>,
   }),
-  columnHelper.accessor('country', {
+  columnHelper.accessor('icons', {
     header: '',
     cell: (info) => (
       <TableCell>

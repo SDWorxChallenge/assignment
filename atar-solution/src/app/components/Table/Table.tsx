@@ -7,6 +7,7 @@ import {
   flexRender,
   getPaginationRowModel,
   Column,
+  ColumnDef,
 } from '@tanstack/react-table';
 import styled from 'styled-components';
 
@@ -16,7 +17,7 @@ import {TableDataRow} from './styled';
 
 type TableProps = {
   data: Candidate[];
-  columns: Column<Candidate>[];
+  columns: ColumnDef<Candidate, string>[];
 };
 
 const TableContainer = styled.div`
@@ -25,6 +26,8 @@ const TableContainer = styled.div`
   width: calc(100% - 148px);
   background-color: white;
   padding: 24px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const _Table = styled.table`
@@ -39,6 +42,12 @@ const Title = styled.p`
   color: #303642;
   font-size: 24px;
   font-weight: bold;
+`;
+
+const PaginationRoot = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-self: center;
 `;
 
 const Table = ({data, columns, ...rest}: TableProps) => {
@@ -95,7 +104,7 @@ const Table = ({data, columns, ...rest}: TableProps) => {
             })}
           </tbody>
         </_Table>
-        <div className='flex items-center gap-2'>
+        <PaginationRoot>
           <button
             className='border rounded p-1'
             onClick={() => table.setPageIndex(0)}
@@ -131,7 +140,7 @@ const Table = ({data, columns, ...rest}: TableProps) => {
           >
             {'>>'}
           </button>
-        </div>
+        </PaginationRoot>
       </TableContainer>
     </>
   );
