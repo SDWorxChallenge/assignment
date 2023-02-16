@@ -1,0 +1,48 @@
+<div class="table">
+    <div class="header-row" *ngrxLet="sorting$ | async as sorting">
+        <div></div>
+        <div
+            [class.sorted]="sorting?.sortColumn === 'name'"
+            [ngClass]="sorting?.sortDirection"
+            (click)="updateSorting('name', sorting?.sortDirection)">
+            NAME
+        </div>
+        <div
+            [class.sorted]="sorting?.sortColumn === 'dateOfBirth'"
+            [ngClass]="sorting?.sortDirection"
+            (click)="updateSorting('dateOfBirth', sorting?.sortDirection)">
+            DATE OF BIRTH
+        </div>
+        <div
+            [class.sorted]="sorting?.sortColumn === 'city'"
+            [ngClass]="sorting?.sortDirection"
+            (click)="updateSorting('city', sorting?.sortDirection)">
+            CITY
+        </div>
+        <div
+            [class.sorted]="sorting?.sortColumn === 'country'"
+            [ngClass]="sorting?.sortDirection"
+            (click)="updateSorting('country', sorting?.sortDirection)">
+            COUNTRY
+        </div>
+    </div>
+    <div *ngFor="let person of data$ | async" class="row">
+        <div>{{ person.id }}</div>
+        <div>{{ person.name }}</div>
+        <div>{{ person.dateOfBirth | date : 'd/M/yyyy' }}</div>
+        <div>{{ person.city }}</div>
+        <div>{{ person.country }}</div>
+    </div>
+</div>
+
+<div class="pagination" *ngrxLet="(pageIndex$ | async) || 0 as activePageIndex">
+    <ng-container *ngrxLet="pageCount$ | async as pageCount">
+        <span (click)="tableStore.resetPageIndex()"><<</span>
+        <span (click)="tableStore.decrementPageIndex()"><</span>
+        <span *ngFor="let pageIndex of pageCount; index as i" [class.active]="i === activePageIndex" (click)="tableStore.updatePageIndex(i)">
+            {{ i + 1 }}</span
+        >
+        <span (click)="tableStore.incrementPageIndex()">></span>
+        <span (click)="tableStore.setMaxPageIndex()">>></span>
+    </ng-container>
+</div>
