@@ -88,6 +88,8 @@ select {
     overflow-y: scroll;
     height: 1000px;
     display: block;
+    border: 1px solid gray;
+    padding: 1rem 0 1rem 1rem;
 }
 
 h1 {
