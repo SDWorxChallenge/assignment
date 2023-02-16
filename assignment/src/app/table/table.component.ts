@@ -14,6 +14,7 @@ export class TableComponent implements OnInit {
   constructor(private _apiservice: ApiServiceService) { }
 
   onDelete(id: string):void {
+    console.log(this.data[0])
     const newData = this.data.filter(e => e.id !== id);
     this.data = newData;
   }
