@@ -1,0 +1,13 @@
+<div class="dropdown">
+  <button #toggleButton (click)="toggle()" class="drop-btn">
+    <fa-icon [icon]="faEllipsisVertical"></fa-icon>
+  </button>
+  <div class="dropdown-content" #menu [ngClass]="{ show: isOpen }">
+    <div class="dropdown-action" (click)="onEdit()">
+      <fa-icon [icon]="faPen"></fa-icon> Edit
+    </div>
+    <div class="dropdown-action" (click)="onDelete()">
+      <fa-icon [icon]="faTrashCan"></fa-icon> Delete
+    </div>
+  </div>
+</div>

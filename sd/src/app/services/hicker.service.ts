@@ -1,13 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, Observable, of } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, Observable, of } from 'rxjs';
 import { Hicker } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class HickerService {
   readonly url = 'https://63998da716b0fdad77409a5e.mockapi.io/api/v1/hikers';
 
-  constructor(private http: HttpClient) {}
+  hickers$ = new BehaviorSubject<Hicker[]>([]);
+
+  constructor(private http: HttpClient) {
+    this.getHickers().subscribe((hickers) => this.hickers$.next(hickers));
+  }
 
   getHickers(): Observable<Hicker[]> {
     return this.http.get<Hicker[]>(this.url).pipe(
@@ -31,9 +35,13 @@ export class HickerService {
     return this.http.put<Hicker>(`${this.url}/${id}`, hicker);
   }
 
-  deleteHicker(id: number) {
+  deleteHicker(id: string) {
+    console.log('huhu');
+
     if (confirm('Are you sure you want to delete this hicker?')) {
-      return this.http.delete(`${this.url}/${id}`);
+      this.hickers$.next(
+        this.hickers$.getValue().filter((hicker) => hicker.id !== id)
+      );
     }
     return EMPTY;
   }

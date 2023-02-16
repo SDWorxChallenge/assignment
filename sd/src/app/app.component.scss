@@ -15,24 +15,29 @@
 
 .hicker-item {
   display: grid;
-  padding: 1rem 0.5rem;
+  padding: 1rem 1rem;
   grid-template-columns: 1fr 5rem 2rem;
-  grid-template-rows: 2rem 2rem;
+  border: 1px solid rgb(241, 241, 241);
 }
 .hicker-name {
   grid-column: 1;
   grid-row: 1;
+  padding: 0.25rem 0;
 }
 .hicker-from {
   grid-column: 1;
   grid-row: 2;
   font-weight: 300;
+  font-size: 0.8rem;
 }
 .hicker-date-of-birth {
   grid-column: 2;
   grid-row: 1;
   font-weight: 300;
+  font-size: 0.8rem;
 }
 .hicker-actions {
   font-weight: 300;
+  font-size: 0.8rem;
+  margin-left: 1rem;
 }

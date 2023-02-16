@@ -11,7 +11,16 @@ import { HickerService } from './services';
 export class AppComponent {
   title = 'sd';
 
-  hickers$ = this.hickerService.getHickers();
+  hickers$ = this.hickerService.hickers$;
+  displayedElements = {
+    name: true,
+    dateOfBirth: true,
+    country: true,
+    city: true,
+    avatar: true,
+    actions: true,
+    actionsFull: true,
+  };
 
   constructor(private hickerService: HickerService) {}
 
@@ -21,7 +30,9 @@ export class AppComponent {
     this.hickerService.updateHicker(id, hicker).subscribe();
   }
 
-  deleteHicker(id: number) {
+  deleteHicker(id: string) {
     this.hickerService.deleteHicker(id).subscribe();
   }
+
+  handleDisplayedElements() {}
 }

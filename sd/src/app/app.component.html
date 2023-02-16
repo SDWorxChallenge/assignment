@@ -3,10 +3,12 @@
   <div class="sd-title">Attendees ({{ hickers.length }})</div>
   <div class="hicker-item" *ngFor="let hicker of hickers">
     <div class="hicker-name">{{ hicker.name }}</div>
-    <div class="hicker-from">{{ hicker.city }} {{ hicker.country }}</div>
+    <div class="hicker-from">{{ hicker.city }} - {{ hicker.country }}</div>
     <div class="hicker-date-of-birth">{{ hicker.dateOfBirth | date }}</div>
     <div class="hicker-actions">
-      <fa-icon [icon]="faEllipsisVertical"></fa-icon>
+      <app-hicker-actions
+        (delete)="deleteHicker(hicker.id)"
+      ></app-hicker-actions>
     </div>
   </div>
 </div>
