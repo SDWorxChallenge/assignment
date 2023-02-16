@@ -1,0 +1,64 @@
+.table {
+    display: flex;
+    justify-content: center;
+    border-spacing: 0;
+}
+
+.table .inputWrapper {
+    display:none;
+}
+
+.table .valueWrapper {
+    display:inline;
+}
+
+.table tr.editMode .inputWrapper {
+    display: inline;
+}
+
+.table tr.editMode .valueWrapper {
+    display: none;
+}
+
+.table .table-column-avatar img {
+    border-radius: 50%;
+    width: 32px;
+    margin-right: 10px;
+}
+
+.table th.table-column {
+    text-align: left;
+    background: #F1F4F8;
+    border: none;
+    border-bottom: 1px solid #C8CDD9;
+    height: 44px;
+}
+
+.table .table-column-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.table .table-column-actions button {
+    background: #fff;
+    border: none;
+}
+
+.table .table-column-actions button:hover {
+    cursor: pointer;
+}
+
+
+.table td.table-column-name {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+}
+
+.table .id-wrapper {
+    border: 1px solid #E3E6EF;
+    border-radius: 7px;
+    padding: 7px 9px;
+    margin-left: -25px;
+}
