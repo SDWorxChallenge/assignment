@@ -13,3 +13,17 @@
     background-color: white;
     border: 1px solid #E3E6EF
 }
+
+.content_mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 576px) {
+    .content {
+      display: none;
+    }
+
+    .content_mobile {
+        display: block;
+    }
+  }
