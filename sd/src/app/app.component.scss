@@ -75,6 +75,8 @@
   }
 
   .hicker-avatar {
+    display: block;
+    margin: auto;
     grid-column: 2;
     img {
       border-radius: 50%;
