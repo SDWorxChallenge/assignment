@@ -1,0 +1,26 @@
+:host {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+th {
+  text-align: left;
+  background-color: #eeeeee;
+}
+
+tr {
+    border-bottom: 2px solid #eeeeee;
+}
+
+.attendees {
+    display: grid;
+    gap: 1em;
+    grid-template-rows: auto minmax(0, 1fr);
+    &__header {
+        display: grid;
+        grid-template-columns: auto repeat(4, 1fr);
+        gap: 0.25em;
+        background-color: #eeeeee;
+        border-bottom: 2px solid #eeeeee;
+    }
+}

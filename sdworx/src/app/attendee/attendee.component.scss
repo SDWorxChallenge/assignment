@@ -1,0 +1,7 @@
+:host > form {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 2ch repeat(5, 1fr);
+    gap: 0.25em;
+    border-bottom: 0.5em solid #eeeeee;
+}

@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+  <input formControlName="id" readonly />
+  <input [readonly]="!editable" formControlName="name" />
+  <input [readonly]="!editable" formControlName="dateOfBirth" />
+  <input [readonly]="!editable" formControlName="city" />
+  <input [readonly]="!editable" formControlName="country" />
+</form>

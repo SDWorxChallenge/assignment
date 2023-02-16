@@ -1,0 +1,19 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <h1>Attendees ({{ vm.attendees.length }})</h1>
+
+  <div class="attendees">
+    <div class="attendees__header">
+      <p>ID</p>
+      <p>Name</p>
+      <p>Date of Birth</p>
+      <p>City</p>
+      <p>Country</p>
+    </div>
+    <div class="attendees__list">
+      <app-attendee
+        *ngFor="let attendee of vm.attendees; let i = index"
+        [attendee]="attendee"
+      ></app-attendee>
+    </div>
+  </div>
+</ng-container>
