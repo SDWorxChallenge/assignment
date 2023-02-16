@@ -34,16 +34,16 @@ function App() {
         <img className="decor" src={Decor} alt="..." />
       </div>
       <div className="wrapper">
-        <h2 className="heading">Attendees <span>{data.length}</span></h2>
+        <h2 className="heading">Attendees <span>{state.hikers.length}</span></h2>
         <table cellPadding={0} cellSpacing={0} >
           <thead>
             <tr>
-              <th>0</th>
+              <th>.</th>
               <th>Name</th>
               <th>Date of birth</th>
               <th>City</th>
               <th>Country</th>
-              <th>0</th>
+              <th>.</th>
             </tr>
           </thead>
           <tbody>
