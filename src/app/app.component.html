@@ -40,7 +40,11 @@
       <span class="title  ">Attendees ({{users.length}})</span>
     </div>
     <div class="item" *ngFor="let user of users">
-      {{user.name}}
+      <span style="name">{{user.name}}</span>
+      <span>{{convertDate(user.dateOfBirth)}}</span>
+      <span>{{user.city}}</span>
+      <span>{{user.country}}</span>
+      <button (click)="deleteUser(user.id)"><img src="/assets/bin.svg"></button>
     </div>
   </div>
 </div>

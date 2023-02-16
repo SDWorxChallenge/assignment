@@ -70,7 +70,7 @@ td:not(:nth-child(-n + 2)) {
 td:last-child {
   text-align: right;
 }
-td:last-child button {
+button {
   border: none;
   background: none;
   cursor: pointer;
