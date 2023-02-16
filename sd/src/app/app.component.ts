@@ -33,6 +33,4 @@ export class AppComponent {
   deleteHicker(id: string) {
     this.hickerService.deleteHicker(id).subscribe();
   }
-
-  handleDisplayedElements() {}
 }
