@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import { Hicker } from './models';
 import { HickerService } from './services';
 
@@ -13,6 +14,8 @@ export class AppComponent {
   hickers$ = this.hickerService.getHickers();
 
   constructor(private hickerService: HickerService) {}
+
+  faEllipsisVertical = faEllipsisVertical;
 
   updateHicker(id: number, hicker: Hicker) {
     this.hickerService.updateHicker(id, hicker).subscribe();

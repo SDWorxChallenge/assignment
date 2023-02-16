@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EMPTY, Observable } from 'rxjs';
+import { catchError, EMPTY, Observable, of } from 'rxjs';
 import { Hicker } from '../models';
 
 @Injectable({ providedIn: 'root' })
@@ -10,7 +10,21 @@ export class HickerService {
   constructor(private http: HttpClient) {}
 
   getHickers(): Observable<Hicker[]> {
-    return this.http.get<Hicker[]>(this.url);
+    return this.http.get<Hicker[]>(this.url).pipe(
+      catchError(() =>
+        of([
+          {
+            dateOfBirth: '2021-01-01',
+            name: 'Jack Sparrow',
+            avatar:
+              'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
+            country: 'Belarus',
+            city: 'Minsk',
+            id: '4',
+          },
+        ])
+      )
+    );
   }
 
   updateHicker(id: number, hicker: Hicker) {

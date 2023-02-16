@@ -1,0 +1,12 @@
+<img class="logo" src="assets/logo.png" alt="logo" />
+<div class="sd-card" *ngIf="hickers$ | async as hickers">
+  <div class="sd-title">Attendees ({{ hickers.length }})</div>
+  <div class="hicker-item" *ngFor="let hicker of hickers">
+    <div class="hicker-name">{{ hicker.name }}</div>
+    <div class="hicker-from">{{ hicker.city }} {{ hicker.country }}</div>
+    <div class="hicker-date-of-birth">{{ hicker.dateOfBirth | date }}</div>
+    <div class="hicker-actions">
+      <fa-icon [icon]="faEllipsisVertical"></fa-icon>
+    </div>
+  </div>
+</div>
